@@ -1,5 +1,8 @@
 <template>
   <div class="pink_back">
+    <div class="top">
+      <el-button type="primary" class="top_btn" icon="el-icon-more" @click="toSet"></el-button>
+    </div>
     <h1>Welcome to Fairy Kingdom</h1>
     <div class="content">
       <el-carousel :interval="4000" type="card" height="350px">
@@ -11,7 +14,9 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-    <el-button style="width:600px;background:#553f2a;color:#fff;border:0;font-size:18px;" >More</el-button>
+    <el-button style="width:600px;background:#553f2a;color:#fff;border:0;font-size:18px;" @click="toDetail">
+       More
+    </el-button>
   </div>
 </template>
 
@@ -21,13 +26,21 @@ export default {
   data () {
     return {
       storyList:[
-        {name:"Daughter of the Sea",imgPath:"/static/img/seaDaughter.08bef8d.jpeg"},
-        {name:"The Brave Tin Soldier",imgPath:"/static/img/soldier.33a077f.jpg"},
-        {name:"Thumbelina",imgPath:"/static/img/thumbelina.d01c4c6.jpeg"},
-        {name:"The Nightingale",imgPath:"/static/img/nightingale.e3fcda8.jpg"},
-        {name:"The Red Shoes",imgPath:"/static/img/redShoes.a0b2949.jpg"},
+        {name:"Daughter of the Sea",imgPath:"/static/img/seaDaughter.jpeg"},
+        {name:"The Brave Tin Soldier",imgPath:"/static/img/soldier.jpg"},
+        {name:"Thumbelina",imgPath:"/static/img/thumbelina.jpeg"},
+        {name:"The Nightingale",imgPath:"/static/img/nightingale.jpg"},
+        {name:"The Red Shoes",imgPath:"/static/img/redShoes.jpg"},
       ],
     }
+  },
+  methods:{
+    toDetail(){
+      this.$router.push({path:'/moreList'});
+    },
+    toSet(){
+      this.$router.push({path:'/setUserInfo'});
+    },
   }
 }
 </script>
@@ -36,7 +49,19 @@ export default {
 .pink_back{
   width: 100%;
   height:calc(100% - 160px);
-  padding-top: 120px;
+  padding-top: 40px;
+  .top{
+    height: 80px;
+    position: relative;
+    .top_btn{
+      position: absolute;
+      right: 80px;
+      width:80px;
+      background:#553f2a;
+      color:#fff;
+      border:0;
+    }
+  }
   .content{
     width: 600px;
     height: 400px;
