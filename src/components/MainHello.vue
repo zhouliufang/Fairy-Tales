@@ -1,7 +1,10 @@
 <template>
   <div class="pink_back">
     <div class="top">
-      <el-button type="primary" class="top_btn" icon="el-icon-more" @click="toSet"></el-button>
+      <div class="top_btn">
+        <el-button type="primary" @click="log"> Log in</el-button>
+        <el-button type="primary"  icon="el-icon-setting" @click="toSet"></el-button>
+      </div>
     </div>
     <h1>Welcome to Fairy Kingdom</h1>
     <div class="content">
@@ -17,6 +20,23 @@
     <el-button style="width:600px;background:#553f2a;color:#fff;border:0;font-size:18px;" @click="toDetail">
        More
     </el-button>
+    <el-dialog
+      :visible.sync="dialogVisible"
+      width="30%"
+      center>
+      <el-form label-position="left"  ref="logForm" label-width="100px" :model="logForm">
+        <el-form-item label="User name:" prop="name" required>
+          <el-input size="small" v-model="logForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="Password:" prop="password" required>
+          <el-input  size="small" v-model="logForm.password"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="cancel('logForm')" size="small">Cancel</el-button>
+        <el-button type="primary" @click="submitForm('logForm')" size="small">OK</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -32,6 +52,9 @@ export default {
         {name:"The Nightingale",imgPath:"/static/img/nightingale.jpg"},
         {name:"The Red Shoes",imgPath:"/static/img/redShoes.jpg"},
       ],
+      dialogVisible:false,
+      logForm:{},
+      isLoginIn:false,
     }
   },
   methods:{
@@ -41,6 +64,23 @@ export default {
     toSet(){
       this.$router.push({path:'/setUserInfo'});
     },
+    log(){//点击登录按钮，跳出弹窗
+      this.dialogVisible = true;
+    },
+    submitForm(form){
+      this.$refs[form].validate((valid) =>{
+        if(valid){
+          this.isLoginIn = true;
+          this.dialogVisible = false;
+        }else{
+
+        }
+      });
+    },
+    cancel(form){
+       this.$refs[form].resetFields();
+       this.dialogVisible = false;
+    }
   }
 }
 </script>
@@ -55,11 +95,14 @@ export default {
     position: relative;
     .top_btn{
       position: absolute;
-      right: 80px;
+      right: 150px;
       width:80px;
-      background:#553f2a;
-      color:#fff;
-      border:0;
+      display: flex;
+      button {
+        background:#553f2a;
+        color:#fff;
+        border:0;
+      }
     }
   }
   .content{
