@@ -1,6 +1,6 @@
-# story
+# 简介Instruction
 
-> story
+> 你是一名特工，输入自己的编号，查看任务资料，完成任务吧
 
 ## Build Setup
 
