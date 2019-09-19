@@ -5,6 +5,7 @@ import MainHello from '@/components/MainHello';
 import MainTask from '@/components/task/MainTask';
 import TaskDetail from '@/components/task/TaskDetail';
 import HistoryTask from '@/components/task/HistoryTask';
+import Menu from '@/components/menu/menu';
 
 
 Vue.use(Router)
@@ -30,6 +31,11 @@ export default new Router({
       path: '/HistoryTask',
       name: 'HistoryTask',
       component: HistoryTask
+    },
+    {
+      path: '/Menu',
+      name: 'Menu',
+      component: Menu
     },
   ]
 })

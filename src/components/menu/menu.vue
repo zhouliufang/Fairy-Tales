@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div></div>
+        <div>
+            <el-button>打开菜单</el-button>
+        </div>
     </div>
 </template>
 <script>
