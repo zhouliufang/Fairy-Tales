@@ -9,6 +9,23 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
+//进入页面前校验权限
+// router.beforeEach((to,from,next) => {
+//   console.log('to-----',to);
+//   console.log('from-----',from);
+//   console.log('next-----',next);
+//   let roleCode = store.state.role ;
+//   if(to.path !== '/' ){//页面需要权限
+    
+
+//   }else{
+//     next();
+//   }
+// });
+
+
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
