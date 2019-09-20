@@ -6,6 +6,7 @@ import MainTask from '@/components/task/MainTask';
 import TaskDetail from '@/components/task/TaskDetail';
 import HistoryTask from '@/components/task/HistoryTask';
 import Menu from '@/components/menu/menu';
+import GuestMenu from '@/components/menu/guestMenu';
 
 
 Vue.use(Router)
@@ -36,6 +37,11 @@ export default new Router({
       path: '/Menu',
       name: 'Menu',
       component: Menu
+    },
+    {
+      path: '/GuestMenu',
+      name: 'GuestMenu',
+      component: GuestMenu
     },
   ]
 })

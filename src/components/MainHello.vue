@@ -34,14 +34,16 @@ export default {
       // 验证码：其他  游客权限
       if(this.inputVerify == '111'){
         this.setRoleAction('agent');
+        //进入主页
+        this.$router.push({path:'/Menu'});
       }else if(this.inputVerify == '123'){
         this.setRoleAction('admin');
+        this.$router.push({path:'/Menu'});
       }else{
         this.setRoleAction('tourist');
+        //进入游客主页
+        this.$router.push({path:'/GuestMenu'});
       }
-
-      //通过进入主页
-      this.$router.push({path:'/Menu'});
     },
   }
 };
