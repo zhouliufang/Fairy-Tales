@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
     state: {
         role:'',
     },
@@ -15,17 +15,15 @@ const store = new Vuex.Store({
             state.role = role ;
         }
     },
-    getter: {//可对state里的数据做处理并缓存结果
+    getters: {//可对state里的数据做处理并缓存结果
 
     },
     actions: {//提交mutation 可包含异步操作
-
+        setRoleAction({commit},role){
+            commit('setRole', role);
+        }
     },
     // moudles: {
 
     // }
-});
-
-export default({
-    store
 });

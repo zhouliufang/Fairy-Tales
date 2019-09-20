@@ -13,6 +13,6 @@ Vue.use(ElementUI);
 new Vue({
   el: '#app',
   router,
-  store,
+  store : store,
   render: h => h(App)
 })

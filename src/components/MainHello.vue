@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapMutations} from "vuex";
+import { mapMutations, mapActions} from "vuex";
 
 export default {
   name: "verify",
@@ -24,8 +24,8 @@ export default {
     };
   },
   methods:{
-    ...mapMutations([
-      'setRole'
+    ...mapActions([
+      "setRoleAction"
     ]),
     enterTask(){
       //验证编号密码
@@ -33,11 +33,11 @@ export default {
       // 验证码：123 管理员权限
       // 验证码：其他  游客权限
       if(this.inputVerify == '111'){
-        this.setRole('agent');
+        this.setRoleAction('agent');
       }else if(this.inputVerify == '123'){
-        this.setRole('admin');
+        this.setRoleAction('admin');
       }else{
-        this.setRole('tourist');
+        this.setRoleAction('tourist');
       }
 
       //通过进入主页
