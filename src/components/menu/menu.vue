@@ -2,7 +2,7 @@
     <div class="menu">
         <div class="show-menu">
             <el-button @click="() => {drawer=true;}">
-                打<br />开<br />菜<br />单
+                菜<br />单
             </el-button>
         </div>
         <!-- <div class="main-content">
@@ -43,14 +43,25 @@ export default {
             menuName: '上传报告',
             menuCode: 'report',
             path:'',
-        },{
+        }];
+        const adminMenuList = [{
             menuName: '人员管理',
             menuCode: 'manage',
             path:'',
-        },];
+        },{
+            menuName: '发布任务',
+            menuCode: 'publish',
+            path:'',
+        },{
+            menuName: '审核请求',
+            menuCode: 'audit',
+            path:'',
+        }];
         return {
             drawer: false,
-            menuList: menuList,
+            menuList: [],
+            adminMenuList: adminMenuList,
+            agentMenuList: menuList,
         }
     },
     computed: {
@@ -60,9 +71,7 @@ export default {
     },
     methods: {
         getMenu(){//得到菜单
-            //console.log(this.role);
-
-
+            this.menuList = this.role === 'agent' ? this.adminMenuList : this.agentMenuList;
         },
         clickMenu(menuItem){//点击菜单
             if(menuItem.path){
@@ -98,8 +107,11 @@ export default {
             line-height: 26px;
         }
     }
-    .menu-list{
+    .menu-list {
         width: 200px;
+        .menu-item {
+            cursor: pointer;
+        }
     }
     .main-content{
         height:100%;
